@@ -12,6 +12,7 @@ gem "sprockets-rails"
 gem "pg", "~> 1.1"
 
 gem "devise"
+gem "cloudinary"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -29,6 +30,9 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem "dotenv-rails"
+
+gem "open-uri"
+gem "nokogiri"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
