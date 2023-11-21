@@ -9,6 +9,10 @@
 #   end
 require "open-uri"
 require "nokogiri"
+require "cloudinary"
+require "active_record"
+
+Duck.destroy_all
 
 category = "horror"
 # url = "https://www.parisduckstore.fr/product-category/#{category}/"s
@@ -16,20 +20,25 @@ url = "https://www.parisduckstore.fr/la-boutique/"
 html_file = URI.open(url).read
 html_doc = Nokogiri::HTML.parse(html_file)
 
+@user = User.create!(first_name: "Margarita", last_name: "Severine",
+  email: "soledad@sophia.com",
+  password: "coucou",
+  password_confirmation: "coucou")
 
 html_doc.search("li.product.type-product").each do |element|
-  image_url = element.at_css("img").values[6]
-  p image_url
+  # images_url = element.at_css("img").values[6]
+  # p "images_url: #{images_url}"
   description = element.at_css(".astra-shop-summary-wrap").text.strip
   title = element.at_css(".woocommerce-loop-product__title").text.strip
-  p title
+  # p title
   price = element.at_css("woocommerce-Price-amount amount")
 
-  uploaded_image = Cloudinary::Uploader.upload(image_url)
+  # uploaded_image = Cloudinary::Uploader.upload(image_url)
   # itération sur image_url pour récupérer cahque url de l'array
 
-  file = URI.open("https://www.parisduckstore.fr/product-category/#{category}/")
+  # file = URI.open(image_url) (à faire)
   duck = Duck.new(title: title, description: description, price: price)
-  duck.photo.attach(io: file, content_type: "image/png")
-  duck.save
+  # duck.photo.attach(io: file, content_type: "image/png")
+  duck.user = @user
+  duck.save!
 end
