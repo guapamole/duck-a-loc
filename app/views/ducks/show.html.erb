@@ -1,11 +1,11 @@
 <div class="card-product">
-  <img src=<%""%> alt="">
+   <%= cl_image_tag @duck.photo.key, class: "card-img-top" %>
   <div class="card-duck-infos">
     <div>
-    <h2> <%= duck.title %></h2>
-    <p><%= duck.description %></p>
+    <h2> <%= @duck.title %></h2>
+    <p><%= @duck.description %></p>
     </div>
-    <h2 class="card-duck-pricing"><%= duck.price %></h2>
+    <h2 class="card-duck-pricing"><%= @duck.price %></h2>
   </div>
    <a class="btn btn-info" href="#">Louer le canard</a>
 </div>
