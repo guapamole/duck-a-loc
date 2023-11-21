@@ -1,9 +1,9 @@
 class DucksController < ApplicationController
 
-
   def index
     @ducks = Duck.all
   end
+
 
   def show
     @duck = Duck.find(params[:id])
@@ -12,6 +12,6 @@ class DucksController < ApplicationController
 
 
   def article_params
-    params.require(:ducks).permit(:title, :description, :price, photos: [])
+    params.require(:ducks).permit(:title, :description, :price, :photo)
   end
 end
