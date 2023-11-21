@@ -1,9 +1,11 @@
 <div class="banner" style="background-image: url('https://res.cloudinary.com/dyvr8rakr/image/upload/v1700568683/wp8162282_wzdbqr.webp')";>
   <%#= cl_image_tag('wp8162282_wzdbqr', class: 'banner-image') %>
   <div class="container">
-    <h1> Duck a loc </h1>
+    <h1> Loc a duck </h1>
     <h2> Trouvez le canard de vos rêves ! </h2>
-    <a class="btn btn-info my-3" href="#">Chercher un canard</a>
+    <button class="btn btn-info my-3" type="button">
+    <%= link_to "Chercher un canard", ducks_path %>
+    </button>
   </div>
 </div>
 
