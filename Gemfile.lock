@@ -113,19 +113,16 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
-
-    dotenv (2.8.1)
-    dotenv-rails (2.8.1)
-      dotenv (= 2.8.1)
-      railties (>= 3.2)
-
     devise (4.9.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     drb (2.2.0)
       ruby2_keywords
     error_highlight (0.5.1)
@@ -283,8 +280,8 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
-  x86_64-darwin-23
   x86_64-darwin-21
+  x86_64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
@@ -293,11 +290,8 @@ DEPENDENCIES
   bootstrap (~> 5.2)
   capybara
   debug
-
-  dotenv-rails
-
   devise
-
+  dotenv-rails
   error_highlight (>= 0.4.0)
   font-awesome-sass (~> 6.1)
   importmap-rails
