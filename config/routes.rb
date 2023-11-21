@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
-  resources :ducks, only: [:index, :new, :create, :show, :destroy]
-  resources :bookings, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :ducks, only: [:index, :new, :create, :show, :destroy] do
+    resources :bookings, only: [:index, :new, :create, :edit, :update, :destroy]
+  end
 
   get '/dashboard', to: 'ducks#show', as: 'dashboard'
 
