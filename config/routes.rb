@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :ducks, only: [:index, :new, :create, :show, :destroy]
   resources :bookings, only: [:index, :new, :create, :edit, :update, :destroy]
 
-  get '/dashboard', to: 'ducks#show', as: 'dashboard'
+  get '/dashboard', to: 'pages#display'
 
   # Defines the root path route ("/")
   # root "posts#index"
