@@ -1,13 +1,20 @@
-<div class="card-product">
-  <img src=<%""%> alt="">
-  <div class="card-duck-infos">
-    <div>
-    <h2> <%= @duck.title %></h2>
-    <p><%= @duck.description %></p>
+<div class="container">
+  <div class="row m-4 card-product">
+
+    <div class="row col-4">
+      <%= cl_image_tag @duck.photo.key, class: "card-img-top", alt: @duck.title %>
+    </div class="col-4">
+
+    <div class="row col-6 card-duck-infos">
+      <div>
+        <h2> <%= @duck.title %></h2>
+        <p><%= @duck.description %></p>
+      </div>
+        <h2 class="card-duck-pricing"><%= @duck.price %>€</h2>
+      <button class="btn btn-info" type="button">
+        <%= link_to "Je veux le louer", new_booking_path %>
+      </button>
     </div>
-    <h2 class="card-duck-pricing"><%= @duck.price %></h2>
+
   </div>
-  <button class="btn btn-info my-3" type="button">
-    <%= link_to "Je veux le louer", new_booking_path %>
-  </button>
 </div>
