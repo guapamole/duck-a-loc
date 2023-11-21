@@ -5,6 +5,6 @@ class DucksController < ApplicationController
   end
 
   def article_params
-    params.require(:ducks).permit(:title, :description, :price, photos: [])
+    params.require(:ducks).permit(:title, :description, :price, :photo)
   end
 end
