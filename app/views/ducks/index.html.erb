@@ -1,3 +1,4 @@
+
 <div class="container m-3">
 
   <div>
@@ -8,20 +9,21 @@
   <div class="row">
     <div class="col">
       <p>Veuillez sélectionner un canard à louer</p>
-      <div class="duck_grid">
-      <% @ducks.each do |duck| %>
-        <%= link_to duck_path(duck) do %>
-          <div class="card">
-            <%= cl_image_tag duck.photo.key, class: "card-img-top", alt: duck.title %>
-          <div class="card-body">
-            <h2 class="card-title"><%= duck.title %></h2>
-            <p class="card-text"><%= duck.description %></p>
-            <p class="card-text"><strong>Price: <%= number_to_currency(duck.price) %></strong></p>
-          </div>
+        <div class="duck_grid">
+          <% @ducks.each do |duck| %>
+            <%= link_to duck_path(duck) do %>
+              <div class="card">
+                <%= cl_image_tag duck.photo.key, class: "card-img-top", alt: duck.title %>
+                  <div class="card-body">
+                    <h2 class="card-title"><%= duck.title %></h2>
+                    <p class="card-text"><%= duck.description %></p>
+                    <p class="card-text"><strong>Price: <%= number_to_currency(duck.price) %></strong></p>
+                  </div>
+              </div>
+            <% end %>
+          <% end %>
         </div>
-        <% end %>
-      <% end %>
-      </div>
     </div>
   </div>
+
 </div>
