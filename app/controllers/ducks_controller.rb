@@ -4,12 +4,14 @@ class DucksController < ApplicationController
     @ducks = Duck.all
   end
 
-
   def show
     @duck = Duck.find(params[:id])
   end
 
+
+
 private
+
 
   def article_params
     params.require(:ducks).permit(:title, :description, :price, :photo)
