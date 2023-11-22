@@ -3,9 +3,12 @@
     <a class="navbar-brand" href="/">
       <img class="titre-navbar" src="https://static-00.iconduck.com/assets.00/duck-icon-512x512-vw9nz9x2.png", alt="duck logo", style="max-height: 40px;"> Loc a Duck
     </a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
@@ -17,7 +20,7 @@
             <a class="nav-link active" aria-current="page" href="/ducks">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/dashboard">Dashboard</a>
+            <a class="nav-link" href="/dashboard">Mes locations</a>
           </li>
           <% if user_signed_in? %> <!-- Check if user is signed in -->
             <li class="nav-item">
@@ -29,10 +32,6 @@
             </li>
           <% end %>
         </ul>
-        <form class="d-flex mt-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </div>
