@@ -7,18 +7,24 @@
     <%= csp_meta_tag %>
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
+  <!-- Add Bootstrap JavaScript -->
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Ubuntu&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
   </head>
 
   <body>
     <%= render "devise/shared/navbar" %>
     <%= render "devise/shared/flashes" %>
     <%= yield %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
