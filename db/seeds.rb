@@ -33,7 +33,8 @@ user = User.create!(first_name: "Margarita", last_name: "Severine",
 count = 0
 html_doc.search("li.product.type-product").each do |element|
   count += 1
-  description = element.at_css(".astra-shop-summary-wrap").text.strip
+  # description = element.at_css('.astra-shop-summary-wrap h2').text.strip
+
   title = element.at_css(".woocommerce-loop-product__title").text.strip
 
   price = element.at_css("bdi").text.strip
@@ -44,7 +45,7 @@ html_doc.search("li.product.type-product").each do |element|
   images_url = test.attr("data-lazy-srcset").split(",")[0].split(" ")[0]
 
   file = URI.open(images_url)
-  duck = Duck.new(title: title, description: description, price: price)
+  duck = Duck.new(title: title, price: price)
   duck.photo.attach(io: file, filename: "duck", content_type: "image/png")
   duck.user = user
   duck.save!

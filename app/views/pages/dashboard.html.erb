@@ -1,5 +1,5 @@
   <div class="container justify-center">
-    <div class="container">
+    <div class="container justify-center bg-light-subtle shadow-sm p-3 mb-5 bg-white rounded">
 
         <div class="main-title">
           <h1>Mes Locations à venir</h1>
@@ -9,16 +9,16 @@
           <div class="row">
               <% @bookings.each do | booking| %>
                       <div class="col-4">
-                          <div class="card m-2">
+                          <div class="card m-2 border-0 shadow-sm p-3 mb-5 bg-white rounded">
                             <div class="image d-flex align-items-center">
-                            <%= cl_image_tag booking.duck.photo.key, class: "card-img-top", alt: booking.duck.title, class:"img-thumbnail" %>
+                            <%= cl_image_tag booking.duck.photo.key, class: "card-img-top padding-0", alt: booking.duck.title, class:"img-thumbnail" %>
                             </div>
 
 
-                            <div>
-                            <%= booking.duck.title %>
+                            <div class="info-content">
+                              <div class="duck-name"> <strong><%= booking.duck.title %></strong> </div>
                               <div class="date">
-                                <%= booking.date %> -
+                                Dates : <%= booking.date %> -
                                 <%= booking.end_date %>
                               </div>
                             </div>
