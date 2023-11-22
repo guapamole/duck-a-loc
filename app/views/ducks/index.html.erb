@@ -1,5 +1,5 @@
 
-<div class="container m-3">
+<div class="felx-container m-3">
 
   <div>
     <h1>Bienvenue sur <em>Duck-a-Loc!</em></h1>
@@ -7,17 +7,19 @@
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-md-4">
       <p>Veuillez sélectionner un canard à louer</p>
-        <div class="duck_grid">
+        <div class="duck_grid card-deck">
           <% @ducks.each do |duck| %>
             <%= link_to duck_path(duck) do %>
-              <div class="card">
-                <%= cl_image_tag duck.photo.key, class: "card-img-top", alt: duck.title %>
+              <div class="card mb-3 bg-white">
+               <%= cl_image_tag duck.photo.key, style: "width: 400px; height: 300px; object-fit: cover;", class: "card-img-top", alt: duck.title %>
                   <div class="card-body">
                     <h2 class="card-title"><%= duck.title %></h2>
-                    <p class="card-text"><%= duck.description %></p>
-                    <p class="card-text"><strong>Prix: <%= duck.price %>€</strong></p>
+                    <div class="card-text">
+                      <p class="card-text"><%= duck.description %></p>
+                      <p class="card-text">Prix: <%= duck.price %>€</p>
+                    </div>
                   </div>
               </div>
             <% end %>
