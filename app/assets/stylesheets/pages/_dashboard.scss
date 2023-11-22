@@ -1,16 +1,30 @@
 .main-title h1 {
   font-family: $duck-title;
+  padding: 2%;
 }
+
+.duck-name {
+  font-family: $duck-title;
+  font-size: 16px;
+  padding: 2%;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.date {
+  font-family: $duck-title;
+  padding-left: 2%;
+}
+
 
 .image {
   display: flex;
   justify-content: center; /* Centre le contenu horizontalement */
   align-items: center; /* Centre le contenu verticalement */
-  height: 200px; /* Ajustez la hauteur de votre conteneur selon vos besoins */
-  width: 200px; /* Ajustez la largeur de votre conteneur selon vos besoins */
+  max-height: 300px; /* Ajustez la hauteur de votre conteneur selon vos besoins */
+  width: 300px; /* Ajustez la largeur de votre conteneur selon vos besoins */
 }
 
 .card-img-top {
-  max-width: 100%; /* Pour que l'image ne dépasse pas la largeur du conteneur */
-  height: auto; /* Ajuste la hauteur proportionnellement */
+  max-width: 50%; /* Pour que l'image ne dépasse pas la largeur du conteneur */
+  height: 70%; /* Ajuste la hauteur proportionnellement */
 }

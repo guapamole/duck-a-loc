@@ -1,23 +1,23 @@
 <div class="container justify-center">
   <div class="row border border-light-subtle bg-light-subtle m-5 p-5">
-    <div class="titre mb-5">
-      <h2>Je souhaite louer le canard <strong><%= @duck.title%></strong> </h2>
-    </div>
-        <div class="formetimg d-flex">
-          <%= cl_image_tag @duck.photo.key, class: "card-img-top", alt: @duck.title, class:"img-thumbnail" %>
-            <div class="formulaire ms-5">
-              <%= simple_form_for [@duck, @booking] do |f| %>
-                <%= f.input :date,
-                          label: 'A partir de',
+    <div class="col-6">
+        <h2>Je souhaite louer le canard <strong><%= @duck.title%></strong>  </h2>
+          <div class="d-flex">
+              <%= cl_image_tag @duck.photo.key, class: "card-img-top", alt: @duck.title, class:"img-thumbnail" %>
+              <div class="formconteiner ms-5">
+                <%= simple_form_for [@duck, @booking] do |f| %>
+                  <%= f.input :date,
+                            label: 'A partir de',
+                            as: :string,
+                            input_html: { data: { controller: "datepicker" } } %>
+                  <%= f.input :end_date,
+                          label: "Jusqu'au",
                           as: :string,
                           input_html: { data: { controller: "datepicker" } } %>
-                <%= f.input :end_date,
-                        label: "Jusqu'au",
-                        as: :string,
-                        input_html: { data: { controller: "datepicker" } } %>
-                <%= f.button :submit, class: 'btn-rose' %>
-              <% end %>
-            </div>
-        </div>
+                  <%= f.button :submit, class: "btn-rose"%>
+                <% end %>
+              </div>
+          </div>
+    </div>
   </div>
 </div>

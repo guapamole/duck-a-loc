@@ -15,6 +15,8 @@ class BookingsController < ApplicationController
     @duck = Duck.find(params[:duck_id])
     @booking.duck = @duck
     @booking.user = current_user
+    # @booking.save
+    # redirect_to dashboard_path
     if @booking.save
       redirect_to dashboard_path
     else
