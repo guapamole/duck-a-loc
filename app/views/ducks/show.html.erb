@@ -11,7 +11,7 @@
         <h2> <%= @duck.title %></h2>
         <p><%= @duck.description %></p>
       </div>
-        <h2 class="card-duck-pricing"><%= @duck.price %>€</h2>
+        <h2 class="card-duck-pricing">Prix:<%= @duck.price %>€</h2>
       <button class="btn btn-info" type="button" >
         <%= link_to "Je veux le louer", new_duck_booking_path(@duck)%>
       </button>
