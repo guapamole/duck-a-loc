@@ -1,19 +1,33 @@
-<h1>Mes Locations à venir</h1>
-  <div class="containes">
-    <div class="cards">
-      <div class="row">
-          <% @bookings.each do | booking| %>
-        <div class="col-4">
-            <div class="card m-2">
-              <%= cl_image_tag booking.duck.photo.key, class: "card-img-top", alt: booking.duck.title, class:"img-thumbnail" %>
-              <%= booking.duck.title %>
-                <div class="date">
-                  <%= booking.date %>
-                  <%= booking.end_date %>
-                </div>
-            </div>
+  <div class="container justify-center">
+    <div class="container">
+
+        <div class="main-title">
+          <h1>Mes Locations à venir</h1>
         </div>
-          <% end %>
-      </div>
+
+        <div class="cards">
+          <div class="row">
+              <% @bookings.each do | booking| %>
+                      <div class="col-4">
+                          <div class="card m-2">
+                            <div class="image d-flex align-items-center">
+                            <%= cl_image_tag booking.duck.photo.key, class: "card-img-top", alt: booking.duck.title, class:"img-thumbnail" %>
+                            </div>
+
+
+                            <div>
+                            <%= booking.duck.title %>
+                              <div class="date">
+                                <%= booking.date %> -
+                                <%= booking.end_date %>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+              <% end %>
+          </div>
+        </div>
+
+
     </div>
-  </div>
+</div>
