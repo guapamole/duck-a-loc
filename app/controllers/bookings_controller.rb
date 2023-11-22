@@ -6,13 +6,18 @@ class BookingsController < ApplicationController
   end
 
   def new
+
+    @duck = Duck.find(params[:duck_id])
     @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @duck = Duck.find(params[:duck_id])
+    @booking.duck = @duck
+    @booking.user = current_user
     @booking.save
-    redirect_to bookings_path
+    redirect_to dashboard_path
   end
 
   def edit
