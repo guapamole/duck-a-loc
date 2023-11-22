@@ -1,0 +1,36 @@
+
+.duck-title h2 {
+  font-size: 32px;
+  font-family: $duck-title;
+  text-align: center;
+  color: #484848;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  padding-top: 24px;
+}
+
+.card-title p {
+  font-size: 16px;
+  font-family: $duck-title;
+  color: #484848;
+
+}
+
+.btn-rose {
+  color: white;
+  font-family: $duck-title;
+  border-radius: 5px;
+  background: #ff868a;
+  transition: background 0.3s ease;
+  width: 180px;
+  height: 60px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.btn-rose:hover {
+  background: #FF5A5F;
+  color: white;
+}
