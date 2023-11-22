@@ -1,4 +1,6 @@
 <%= simple_form_for [@duck, @booking] do |f| %>
-  <%= f.input :date %>
+  <%= f.input :opening_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
   <%= f.submit %>
 <% end %>
