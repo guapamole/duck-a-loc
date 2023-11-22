@@ -5,21 +5,23 @@
           <h1>Mes Locations à venir</h1>
         </div>
 
-        <div class="cards">
+        <div class="cards justify-center">
           <div class="row">
               <% @bookings.each do | booking| %>
                       <div class="col-4">
-                          <div class="card m-2 border-0 shadow-sm p-3 mb-5 bg-white rounded">
-                            <div class="image d-flex align-items-center">
+                          <div class="card m-2 border-0 shadow-sm p-3 mb-5 bg-white rounded ">
                             <%= cl_image_tag booking.duck.photo.key, class: "card-img-top padding-0", alt: booking.duck.title, class:"img-thumbnail" %>
-                            </div>
-
-
                             <div class="info-content">
                               <div class="duck-name"> <strong><%= booking.duck.title %></strong> </div>
-                              <div class="date">
-                                Dates : <%= booking.date %> -
-                                <%= booking.end_date %>
+                              <div class="date d-flex">
+                                Date de debut : <%= booking.date %>
+                                <br>
+                                Date de fin :<%= booking.end_date %>
+                              <div class="col destroy text-end">
+                              <%= link_to "Annuler",
+                                booking_path(booking), class: "text-danger",
+                                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+                              </div>
                               </div>
                             </div>
                           </div>

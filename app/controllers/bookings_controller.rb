@@ -15,8 +15,6 @@ class BookingsController < ApplicationController
     @duck = Duck.find(params[:duck_id])
     @booking.duck = @duck
     @booking.user = current_user
-    # @booking.save
-    # redirect_to dashboard_path
     if @booking.save
       redirect_to dashboard_path
     else
@@ -34,7 +32,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to bookings_path
+    redirect_to booking_path
   end
 
   private
