@@ -1,0 +1,16 @@
+.main-title h1 {
+  font-family: $duck-title;
+}
+
+.image {
+  display: flex;
+  justify-content: center; /* Centre le contenu horizontalement */
+  align-items: center; /* Centre le contenu verticalement */
+  height: 200px; /* Ajustez la hauteur de votre conteneur selon vos besoins */
+  width: 200px; /* Ajustez la largeur de votre conteneur selon vos besoins */
+}
+
+.card-img-top {
+  max-width: 100%; /* Pour que l'image ne dépasse pas la largeur du conteneur */
+  height: auto; /* Ajuste la hauteur proportionnellement */
+}
