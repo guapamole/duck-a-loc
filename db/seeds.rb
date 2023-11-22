@@ -36,7 +36,9 @@ html_doc.search("li.product.type-product").each do |element|
   description = element.at_css(".astra-shop-summary-wrap").text.strip
   title = element.at_css(".woocommerce-loop-product__title").text.strip
 
-  price = element.at_css("woocommerce-Price-amount amount")
+  price = element.at_css("bdi").text.strip
+  p price
+
   test = element.at_css('.size-woocommerce_thumbnail img')
   next unless test
   images_url = test.attr("data-lazy-srcset").split(",")[0].split(" ")[0]
