@@ -1,21 +1,27 @@
 
-<div class="container">
-  <div class="row m-4 card-product">
+<div class="container justify-center ">
+  <div class="row border border-light-subtle bg-light-subtle m-5">
+    <div class="duck-title">
+      <h2 class="title-font my-3"> <%= @duck.title %></h2>
 
-    <div class="row col-4">
-      <%= cl_image_tag @duck.photo.key, class: "card-img-top", alt: @duck.title %>
-    </div class="col-4">
-
-    <div class="row col-6 card-duck-infos">
-      <div>
-        <h2> <%= @duck.title %></h2>
-        <p><%= @duck.description %></p>
-      </div>
-        <h2 class="card-duck-pricing">Prix:<%= @duck.price %>€</h2>
-      <button class="btn btn-info" type="button" >
-        <%= link_to "Je veux le louer", new_duck_booking_path(@duck)%>
-      </button>
     </div>
+    <div class="row m-4 card-product">
 
+      <div class="row col-4">
+        <%= cl_image_tag @duck.photo.key, class: "card-img-top", alt: @duck.title %>
+      </div class="col-4">
+
+        <div class="row col-8 card-duck-infos">
+          <div class="card-title row d-flex align-items-center m-0">
+            <p class="description fst-italic"><%= @duck.description %></p>
+            <p class="card-duck-pricing d-flex align-items-center">Prix:<%= @duck.price %>€</p>
+          </div>
+          <button class="btn btn-rose mx-auto" type="button">
+            <%= link_to "Je veux le louer", new_duck_booking_path(@duck) %>
+          </button>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>

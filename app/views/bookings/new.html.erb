@@ -1,6 +1,15 @@
-<%= simple_form_for [@duck, @booking] do |f| %>
-  <%= f.input :opening_date,
+<div class="container">
+  <h2>Je souhaite louer le canard <%= @duck.title%> </h2>
+  <%= cl_image_tag @duck.photo.key, class: "card-img-top", alt: @duck.title, class:"img-thumbnail" %>
+  <%= simple_form_for [@duck, @booking] do |f| %>
+    <%= f.input :date,
+              label: 'A partir de',
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+    <%= f.input :end_date,
+            label: "Jusqu'au",
             as: :string,
             input_html: { data: { controller: "datepicker" } } %>
-  <%= f.submit %>
-<% end %>
+    <%= f.submit %>
+  <% end %>
+</div>

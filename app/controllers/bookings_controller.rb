@@ -6,7 +6,6 @@ class BookingsController < ApplicationController
   end
 
   def new
-
     @duck = Duck.find(params[:duck_id])
     @booking = Booking.new
   end
@@ -16,8 +15,11 @@ class BookingsController < ApplicationController
     @duck = Duck.find(params[:duck_id])
     @booking.duck = @duck
     @booking.user = current_user
-    @booking.save
-    redirect_to dashboard_path
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -40,6 +42,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:date, :user_id, :duck_id)
+    params.require(:booking).permit(:date, :end_date, :user_id, :duck_id)
   end
 end

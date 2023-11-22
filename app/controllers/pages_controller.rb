@@ -1,10 +1,12 @@
 class PagesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :home
 
   def dashboard
+    @bookings = current_user.bookings.order(created_at: :desc)
+
   end
 
 
-  skip_before_action :authenticate_user!, only: :home
   def home
 
   end
