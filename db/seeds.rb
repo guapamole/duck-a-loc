@@ -13,10 +13,10 @@ require "cloudinary"
 require "active_record"
 
 p "Destroying previous Data"
+Booking.destroy_all
 Duck.destroy_all
 User.destroy_all
 
-category = "horror"
 # url = "https://www.parisduckstore.fr/product-category/#{category}/"s
 # url = "https://www.parisduckstore.fr/la-boutique/"
 
