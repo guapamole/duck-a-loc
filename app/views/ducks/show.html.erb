@@ -1,6 +1,6 @@
 
 <div class="container justify-center ">
-  <div class="row border border-light-subtle bg-light-subtle m-5">
+  <div class="row border border-light-subtle shadow-sm bg-light-subtle m-5">
     <div class="duck-title">
       <h2 class="title-font my-3"> <%= @duck.title %></h2>
 
@@ -18,7 +18,7 @@
             <p class="card-duck-pricing d-flex align-items-center">Prix:<%= @duck.price %>€</p>
 
           </div>
-          <button class="btn btn-rose mx-auto" type="button">
+          <button class="btn btn-rose mx-auto shadow-sm" type="button">
             <%= link_to "Je veux le louer", new_duck_booking_path(@duck) %>
           </button>
         </div>
