@@ -1,13 +1,4 @@
 
-<div class="card-product">
-  <img src=<%""%> alt="">
-  <div class="card-duck-infos">
-    <div>
-    <h2> <%= @duck.title %></h2>
-    <p><%= @duck.description %></p>
-    </div>
-    <h2 class="card-duck-pricing"><%= @duck.price %></h2>
-
 <div class="container">
   <div class="row m-4 card-product">
 
@@ -22,7 +13,7 @@
       </div>
         <h2 class="card-duck-pricing"><%= @duck.price %>€</h2>
       <button class="btn btn-info" type="button">
-        <%= link_to "Je veux le louer", new_booking_path %>
+        <%= link_to "Je veux le louer", new_duck_booking_path(@duck) %>
       </button>
     </div>
 
