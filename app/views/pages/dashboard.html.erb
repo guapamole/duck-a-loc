@@ -80,15 +80,20 @@
                   <% duck.bookings.each do |booking| %>
                     <% if booking.status == "pending" %>
                       <p>Status: En cours</p>
-                      <%= link_to "Valider", accept_booking_path(booking), data: {turbo_method: :patch}, class: "btn btn-success" %>
+                      <%= link_to "Valider", accept_booking_path(booking), data: { turbo_method: :patch }, class: "btn btn-success" %>
+                      <%= link_to "Refuser", decline_booking_path(booking), data: { turbo_method: :patch }, class: "btn btn-success", style: "display: none;" %>
                     <% elsif booking.status == "validated" %>
                       <p>Status: Valider</p>
-                      <%= link_to "Refuser", decline_booking_path(booking), data: {turbo_method: :patch}, class: "btn btn-success" %>
+                      <%= link_to "Refuser", decline_booking_path(booking), data: { turbo_method: :patch }, class: "btn btn-success" %>
+                      <%= link_to "Valider", accept_booking_path(booking), data: { turbo_method: :patch }, class: "btn btn-success", style: "display: none;" %>
                     <% else %>
                       <p>Status: Refuser</p>
+                      <%= link_to "Valider", accept_booking_path(booking), data: { turbo_method: :patch }, class: "btn btn-success" %>
+                      <%= link_to "Refuser", decline_booking_path(booking), data: { turbo_method: :patch }, class: "btn btn-success", style: "display: none;" %>
                     <% end %>
                   <% end %>
                 <% end %>
+
                 <div class="card-delete col destroy text-end">
                   <%= link_to "Supprimer",
                     duck_path(duck), class: "text-danger",
