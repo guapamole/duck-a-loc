@@ -13,11 +13,11 @@
                   <%= f.input :date,
                           label: 'A partir de',
                           as: :string,
-                          input_html: { data: { controller: "datepicker" } } %>
+                          input_html: { data: { controller: "datepicker", target: "startDate" } } %>
                   <%= f.input :end_date,
                           label: "Jusqu'au",
                           as: :string,
-                          input_html: { data: { controller: "datepicker" } } %>
+                          input_html: { data: { controller: "datepicker", target: "endDate" } } %>
                   <%= f.button :submit, "Louer", class: "btn btn-info"%>
                 <% end %>
               </div>
