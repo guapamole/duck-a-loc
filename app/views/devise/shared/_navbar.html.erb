@@ -16,10 +16,11 @@
       <span class="navbar-toggler-icon"></span>
     </button> %>
 <div class="col">
-    <div class="collapse navbar-collapse mx-5 text-center " id="navbarSupportedContent">
-      <ul class="navbar-nav ">
+    <div class="collapse navbar-collapse mx-5 text-center align-items-center d-flex" id="navbarSupportedContent">
+      <ul class="navbar-nav d-flex align-items-center">
         <% if user_signed_in? %>
-          <li class="nav-item">            <%= link_to "Tous les canards", "/index", class: "nav-link" %>
+          <li class="nav-item">
+          <%= link_to "Tous les canards", "/ducks", class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Ajouter un canard", "/ducks/new", class: "nav-link" %>
