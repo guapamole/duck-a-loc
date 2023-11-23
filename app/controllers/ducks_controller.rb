@@ -17,9 +17,9 @@ class DucksController < ApplicationController
     @duck = Duck.new(ducks_params)
     @duck.user = current_user
     if @duck.save
-      redirect_to ducks_path
+      redirect_to dashboard_path
     else
-      render new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -28,6 +28,6 @@ private
 
 
   def ducks_params
-    params.require(:ducks).permit(:title, :price, :photo)
+    params.require(:duck).permit(:title, :price, :photo)
   end
 end
