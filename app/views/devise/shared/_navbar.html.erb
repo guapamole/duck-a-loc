@@ -20,6 +20,9 @@
       <ul class="navbar-nav ">
         <% if user_signed_in? %>
           <li class="nav-item">
+            <%= link_to "Tous les canards", "/index", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "Ajouter un canard", "/ducks/new", class: "nav-link" %>
           </li>
           <li class="nav-item">
