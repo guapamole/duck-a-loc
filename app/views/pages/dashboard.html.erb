@@ -3,52 +3,37 @@
 </div>
 
 
-  <div class="container mx-auto bg-light-subtle shadow-sm bg-white rounded">
-
-
-    <div class="main-title ps-3 pb-3">
-
-      <h1>Mes Locations à venir</h1>
-    </div>
+<div class="container mx-auto bg-light-subtle shadow-sm bg-white rounded">
+  <div class="main-title ps-3 pb-3">
+    <h1>Mes Locations à venir</h1>
+  </div>
 
 <div class="row">
-        <% @bookings.each do |booking| %>
-
-          <% if current_user == booking.duck.user %>
-            <div class="col-4">
-
-              <div class="card-img m-3 shadow-sm bg-white">
-                <%= cl_image_tag booking.duck.photo.key, class: "card-img-top", style: "height: 200px; object-fit: scale-down;", alt: booking.duck.title, class:"img-thumbnail" %>
-                <div class="h-100 card-body">
-                  <div class="card-title mb-2"> <strong><%= booking.duck.title %></strong> </div>
-                  <div class="card-text">
-                    Date de debut : <%= booking.date %>
-                    <br>
-
-                    Date de fin : <%= booking.end_date %>
-                  </div>
-
-                  <div class="col destroy text-end px-3">
-                    <%= link_to "Annuler",
-                      booking_path(booking), class: "text-danger",
-                      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-
-                  </div>
-
-          <div class="col-4">
-            <div class="card m-2 border-0 shadow-sm p-3 mb-5 bg-white rounded">
-              <%= cl_image_tag booking.duck.photo.key, class: "card-img-top padding-0 img-thumbnail", alt: booking.duck.title %>
-              <div class="info-content">
-                <div class="duck-name"><strong><%= booking.duck.title %></strong></div>
-                <div class="date d-flex">
+  <% @bookings.each do |booking| %>
+    <div class="col-4">
+    <div class="card m-2 border-0 shadow-sm p-3 mb-5 bg-white rounded">
+        <%= cl_image_tag booking.duck.photo.key, class: "card-img-top padding-0 img-thumbnail", alt: booking.duck.title %>
+            <div class="info-content">
+            <div class="duck-name"><strong><%= booking.duck.title %></strong></div>
+            <div class="date d-flex">
                   Date de debut : <%= booking.date %><br>
                   Date de fin : <%= booking.end_date %>
-                </div>
+                 </div>
 
                 <div class="col destroy text-end">
                   <%= link_to "Annuler", booking_path(booking), class: "text-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 
                 </div>
+
+                <% if booking.status == "pending" %>
+                      <p>Status: Validation en attente</p>
+
+                <% elsif booking.status == "validated" %>
+                      <p>Status: Location validée</p>
+
+                <% else %>
+                      <p>Status: Location refusée</p>
+                    <% end %>
               </div>
             </div>
           </div>
@@ -73,17 +58,12 @@
             <div class="card-img m-3 shadow-sm bg-white ">
               <% if duck.photo.present? %>
                 <%= cl_image_tag duck.photo.key, class: "card-img-top padding-0", alt: duck.title, style: "height: 200px; object-fit: scale-down;", class:"img-thumbnail" %>
-
               <% end %>
               <div class="h-100 card-body">
                 <% if duck.title.present? %>
-
                   <div class="card-title mb-2"> <strong><%= duck.title %></strong> </div>
                 <% end %>
                 <% if duck.price.present? %>
-
-                  <div class="card-text"> <strong><%= duck.price %></strong> </div>
-
                   <div class="duck-price"><strong> Prix: <%= duck.price %></strong> €</div>
                 <% end %>
 
