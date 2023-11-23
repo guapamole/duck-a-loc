@@ -13,7 +13,7 @@
       <% @ducks.each do |duck| %>
         <div class="col-lg-4 mb-3"> <!-- Adjust column size as needed -->
           <%#= link_to duck_path(duck) do %>
-          <%= link_to new_duck_booking_path(duck) do %>
+          <%= link_to duck_path(duck) do %>
             <div class="card-img shadow-sm bg-white h-100">
               <% if duck.photo.attached? %>
                 <%= cl_image_tag duck.photo.key, class: "card-img-top", style: "height: 250px; object-fit: scale-down; padding: 10px;", alt: duck.title %>

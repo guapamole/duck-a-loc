@@ -12,24 +12,22 @@
     <div class="cards justify-center">
       <div class="row">
         <% @bookings.each do |booking| %>
-          <% if current_user == booking.duck.user %>
-            <div class="col-4">
-              <div class="card m-2 border-0 shadow-sm p-3 mb-5 bg-white rounded">
-                <%= cl_image_tag booking.duck.photo.key, class: "card-img-top padding-0 img-thumbnail", alt: booking.duck.title %>
-                <div class="info-content">
-                  <div class="duck-name"><strong><%= booking.duck.title %></strong></div>
-                  <div class="date d-flex">
-                    Date de debut : <%= booking.date %><br>
-                    Date de fin : <%= booking.end_date %>
-                  </div>
-                  <p>Status: Pending</p>
-                  <div class="col destroy text-end">
-                    <%= link_to "Annuler", booking_path(booking), class: "text-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-                  </div>
+          <div class="col-4">
+            <div class="card m-2 border-0 shadow-sm p-3 mb-5 bg-white rounded">
+              <%= cl_image_tag booking.duck.photo.key, class: "card-img-top padding-0 img-thumbnail", alt: booking.duck.title %>
+              <div class="info-content">
+                <div class="duck-name"><strong><%= booking.duck.title %></strong></div>
+                <div class="date d-flex">
+                  Date de debut : <%= booking.date %><br>
+                  Date de fin : <%= booking.end_date %>
+                </div>
+
+                <div class="col destroy text-end">
+                  <%= link_to "Annuler", booking_path(booking), class: "text-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
                 </div>
               </div>
             </div>
-          <% end %>
+          </div>
         <% end %>
       </div>
     </div>
@@ -55,19 +53,19 @@
                   <div class="duck-name"><strong><%= duck.title %></strong></div>
                 <% end %>
                 <% if duck.price.present? %>
-                  <div class="duck-price"><strong><%= duck.price %></strong></div>
+                  <div class="duck-price"><strong> Prix: <%= duck.price %></strong> €</div>
                 <% end %>
 
                 <% if current_user == duck.user %>
-                  <% bookings_for_duck = duck.bookings.where(user: current_user) %>
-                  <% bookings_for_duck.each do |booking| %>
-                    <% if booking.pending? %>
-                      <p>Status: Pending</p>
-                      <%= link_to "Valider", validate_booking_path(booking), method: :put, class: "btn btn-success" %>
-                    <% elsif booking.validated? %>
-                      <p>Status: Validated</p>
+                  <% duck.bookings.each do |booking| %>
+                    <% if booking.status == "pending" %>
+                      <p>Status: En cours</p>
+                      <%= link_to "Valider", accept_booking_path(booking), data: {turbo_method: :patch}, class: "btn btn-success" %>
+                    <% elsif booking.status == "validated" %>
+                      <p>Status: Valider</p>
+                      <%= link_to "Refuser", decline_booking_path(booking), data: {turbo_method: :patch}, class: "btn btn-success" %>
                     <% else %>
-                      <p>Status: Archived</p>
+                      <p>Status: Refuser</p>
                     <% end %>
                   <% end %>
                 <% end %>
