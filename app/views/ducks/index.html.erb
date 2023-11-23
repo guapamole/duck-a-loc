@@ -1,6 +1,10 @@
 
-    <div>
-      <h1 class="title">Bienvenue sur <em>Loc-a-Duck!</em></h1>
+
+<div class="background">
+<div class="container mx-auto">
+
+  <div class="title py-5">
+      <h1 class="title pb-2">Bienvenue sur Loc a Duck!</h1>
       <h2 class="subtitle">Le site numéro un de location de canard en plastique</h2>
     </div>
 
@@ -10,11 +14,11 @@
         <div class="col-lg-4 mb-3"> <!-- Adjust column size as needed -->
           <%#= link_to duck_path(duck) do %>
           <%= link_to new_duck_booking_path(duck) do %>
-            <div class="card bg-white h-100">
+            <div class="card-img shadow-sm bg-white h-100">
               <% if duck.photo.attached? %>
                 <%= cl_image_tag duck.photo.key, class: "card-img-top", style: "height: 250px; object-fit: scale-down; padding: 10px;", alt: duck.title %>
               <% end %>
-              <div class="card-body">
+              <div class="h-100 card-body">
                 <h2 class="card-title"><%= duck.title %></h2>
                 <p class="card-text">Prix: <%= duck.price %>€</p>
               </div>
@@ -24,3 +28,4 @@
       <% end %>
     </div>
   </div>
+ </div>
