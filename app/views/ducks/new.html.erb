@@ -1,0 +1,10 @@
+<div>
+  <h2>Ajoute un canard à la location:</h2>
+
+  <%= simple_form_for(@duck)do |f| %>
+    <%= f.input :title %>
+    <%= f.input :price %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+  <% end %>
+</div>
