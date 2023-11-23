@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:edit, :update, :destroy]
+  before_action :set_booking, only: [:edit, :update, :destroy, :accept, :decline]
 
   def index
     @bookings = Booking.all
@@ -11,18 +11,15 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @booking = Booking.new(booking_params)
     @duck = Duck.find(params[:duck_id])
-    if current_user == @duck.user
-      @booking = @duck.bookings.build(booking_params)
-      @booking.user = current_user
-      if @booking.save
-        redirect_to dashboard_path
-      else
-        render :new, status: :unprocessable_entity
-      end
-    else
-      flash[:alert] = "You are not authorized to perform this action."
+    @booking.duck = @duck
+    @booking.user = current_user
+    @booking.pending!
+    if @booking.save
       redirect_to dashboard_path
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -31,22 +28,29 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.find(params[:id])
-    if current_user == @booking.duck.user
-      if @booking.update(booking_params)
-        redirect_to bookings_path
-      else
-        render :edit, status: :unprocessable_entity
-      end
-    else
-      flash[:alert] = "You are not authorized to perform this action."
+    @duck = Duck.find(params[:duck_id])
+    @booking.duck = @duck
+    @booking.user = current_user
+    if @booking.update(booking_params)
       redirect_to bookings_path
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @booking.destroy
     redirect_to booking_path
+  end
+
+  def accept
+    @booking.validated!
+    redirect_to dashboard_path
+  end
+
+  def decline
+    @booking.declined!
+    redirect_to dashboard_path
   end
 
   private
@@ -56,10 +60,8 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:date, :end_date, :user_id, :duck_id)
+    params.require(:booking).permit(:date, :end_date, :user_id, :duck_id, :status)
   end
 
-  def validate_booking
-    @booking.validated!
-  end
+
 end
