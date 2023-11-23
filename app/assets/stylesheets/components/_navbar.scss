@@ -3,7 +3,7 @@ p{
 }
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $yellow;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -16,6 +16,18 @@ p{
 
 .navbar-title {
   font-family: $big-title-font ;
-  font-size: 30px;
+  font-size: 40px;
   margin: 0%;
+}
+
+.nav-item {
+  width: 150px;
+  color: $gray;
+  text-decoration: none;
+}
+
+.nav-item:hover {
+  border-radius: 30px;
+  background-color: white;
+  font-weight: 700;
 }
