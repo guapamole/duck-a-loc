@@ -19,8 +19,12 @@
     <div class="collapse navbar-collapse mx-5 text-center " id="navbarSupportedContent">
       <ul class="navbar-nav ">
         <% if user_signed_in? %>
+          <li class="nav-item">            <%= link_to "Tous les canards", "/index", class: "nav-link" %>
+          </li>
           <li class="nav-item">
+
             <%= link_to "Ajouter un canard", new_duck_path, class: "nav-link" %>
+
           </li>
           <li class="nav-item">
             <%= link_to "Mon profil", "/dashboard", class: "nav-link" %>
