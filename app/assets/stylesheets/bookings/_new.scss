@@ -9,3 +9,12 @@ h2.title {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     padding-bottom: 2%;
 }
+
+
+.btn {
+  box-shadow: 8px 8px 8px rgba(255, 255, 255, 0.3);
+  font-family: $duck-title;
+  font-size: 20px;
+  color: white;
+  border-radius: 8px;
+}
