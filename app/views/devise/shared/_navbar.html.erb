@@ -20,7 +20,7 @@
       <ul class="navbar-nav ">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "Ajouter un canard", "/ducks/new", class: "nav-link" %>
+            <%= link_to "Louer un canard", new_duck_booking_path(@ducks), class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Mon profil", "/dashboard", class: "nav-link" %>
