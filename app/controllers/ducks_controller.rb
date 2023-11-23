@@ -1,12 +1,13 @@
 class DucksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_duck, only: [:show, :destroy]
 
   def index
     @ducks = Duck.all
   end
 
   def show
-    @duck = Duck.find(params[:id])
+
   end
 
   def new
@@ -23,9 +24,16 @@ class DucksController < ApplicationController
     end
   end
 
+  def destroy
+    @duck.destroy
+    redirect_to dashboard_path
+  end
+
 
 private
-
+  def set_duck
+    @duck = Duck.find(params[:id])
+  end
 
   def ducks_params
     params.require(:duck).permit(:title, :price, :photo)
