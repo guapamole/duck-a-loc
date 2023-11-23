@@ -1,45 +1,38 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-
-    <a class="navbar-brand" href="/">
-      <img class="titre-navbar" src="https://static-00.iconduck.com/assets.00/duck-icon-512x512-vw9nz9x2.png", alt="duck logo", style="max-height: 40px;">
-    </a>
-    <p class="navbar-title col-11 align-middle">Loc a Duck</p>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-
+  <div class="container-fluid ">
+  <div class="d-flex justify-content-center align-items-center">
+  <div class="col justify-content-center">
     <%= link_to "/", class: "navbar-brand" do %>
-      <img class="image-navbar" src="https://static-00.iconduck.com/assets.00/duck-icon-512x512-vw9nz9x2.png", alt="duck logo", style="max-height: 40px;">
+    <img class="image-navbar" src="https://static-00.iconduck.com/assets.00/duck-icon-512x512-vw9nz9x2.png", alt="duck logo">
+      <%#= image_tag "https://static-00.iconduck.com/assets.00/duck-icon-512x512-vw9nz9x2.png" %>
+  </div>
+
+      <p class="navbar-title col-11 align-middle">Loc a Duck</p>
     <% end %>
-    <p class="navbar-title col-11 align-middle">Loc a Duck</p>
-
-
+  </div>
+  </div>
+<%# 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <%# if user_signed_in? %>
+        <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <%= link_to "Louer un canard", "/ducks/new", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "Mon profil", "/dashboard", class: "nav-link" %>
           </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
+          <li class="nav-item">
+            <%= link_to 'Log out', destroy_user_session_path, data: {turbo_method: :delete}, class: 'nav-link' %>
           </li>
-        <%# else %>
-          <!--li class="nav-item"-->
-            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <!--/li-->
-        <%# end %>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
