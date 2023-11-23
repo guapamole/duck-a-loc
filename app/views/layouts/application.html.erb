@@ -16,25 +16,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Ubuntu&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-       <style>
-      body {
-        padding-top: 70px; /* Ajustez cette valeur selon la hauteur de votre barre de navigation */
-      }
-      .navbar-fixed {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000; /* Assurez-vous que la z-index est supérieure à celle du contenu pour que la navbar soit au-dessus */
-      }
-    </style>
   </head>
 
   <body>
-
-    <%= render "devise/shared/navbar" %>
-    <%= render "devise/shared/flashes" %>
+    <% unless current_page?(root_path) %>
+      <%= render "devise/shared/navbar" %>
+    <% end %>
+    <%#= render "devise/shared/flashes" %>
     <%= yield %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   </body>
