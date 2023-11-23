@@ -11,15 +11,15 @@
       </div>
 </div>
   <%# START SEARCH--------------------- %>
-    <div class="col flex-grow-1 p-5 align-items-center justify-content-center">
-    <div class="m-5 ml-auto">
+    <div class="col p-5 align-items-center justify-content-end d-flex">
+    <div class=" ms-5 flex-grow-1">
       <%= form_with url: ducks_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",
               placeholder: "Chercher un canard..."
           %>
-        <%= image_submit_tag("https://static-00.iconduck.com/assets.00/duck-icon-512x512-vw9nz9x2.png", class: "btn", alt: "Rechercher") %>
+        <%= image_submit_tag("canard-en-caoutchouc.png", class: "btn-search", alt: "Rechercher") %>
       <% end %>
     </div>
   </div>
@@ -31,12 +31,12 @@
       <% @ducks.each do |duck| %>
         <div class="col-lg-4 mb-3"> <!-- Adjust column size as needed -->
           <%#= link_to duck_path(duck) do %>
-          <%= link_to duck_path(duck) do %>
+          <%= link_to new_duck_booking_path(duck) do %>
             <div class="card-img shadow-sm bg-white h-100">
               <% if duck.photo.attached? %>
                 <%= cl_image_tag duck.photo.key, class: "card-img-top", style: "height: 250px; object-fit: scale-down; padding: 10px;", alt: duck.title %>
               <% end %>
-              <div class="h-100 card-body">
+              <div class="card-body text-left">
                 <h2 class="card-title"><%= duck.title %></h2>
                 <p class="card-text">Prix: <%= duck.price %>€</p>
               </div>

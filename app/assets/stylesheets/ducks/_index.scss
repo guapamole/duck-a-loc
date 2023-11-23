@@ -46,8 +46,8 @@ align-items: center;
 }
 
 h2.card-title {
-  padding-left: 20px;
-  padding-top: 20px;
+  // padding-left: 20px;
+  // padding-top: 20px;
   font-size: 20px;
   font-family: $duck-title;
   color: #484848;
@@ -55,7 +55,7 @@ h2.card-title {
 
 .card-body {
   display: flex;
-  justify-content: space-around;
+  // justify-content: space-around;
   flex-direction: column;
 }
 
@@ -64,6 +64,6 @@ p.card-text {
   font-family: $duck-title;
   color: #484848;
   align-items: self-end;
-  padding-right: 15px;
-  padding-bottom: 15px;
+  // padding-right: 15px;
+  // padding-bottom: 15px;
 }

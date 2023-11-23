@@ -1,77 +1,62 @@
-<div class="main-title">
-  <h1 id="mesCanards">Mes canards en location</h1>
+<%# MES LOCATIONS A VENIR--------------------------------------------------- %>
+<div class="container mx-auto">
+<div class="main-title my-4">
+  <h1 id="mesCanards">Mes Locations à venir</h1>
 </div>
 
 
-  <div class="container mx-auto bg-light-subtle shadow-sm bg-white rounded">
-    <div class="main-title ps-3 pb-3">
-      <h1>Mes Locations à venir</h1>
-    </div>
 
-<div class="row">
-        <% @bookings.each do |booking| %>
-            <div class="col-4">
-              <div class="card m-2 border-0 shadow-sm p-3 mb-5 bg-white rounded">
-                <%= cl_image_tag booking.duck.photo.key, class: "card-img-top", style: "height: 200px; object-fit: scale-down;", alt: booking.duck.title, class:"img-thumbnail" %>
-                <div class="h-100 card-body">
-                  <div class="card-title mb-2"> <strong><%= booking.duck.title %></strong> </div>
-                  <div class="card-text">
-                    Date de debut : <%= booking.date %>
-                    <br>
-
-                    Date de fin : <%= booking.end_date %>
+    <div class="row">
+      <% @bookings.each do |booking| %>
+        <div class="col-lg-4 mb-3">
+          <div class="card-img shadow-sm bg-white h-100">
+            <%= cl_image_tag booking.duck.photo.key, class: "card-img-top", style: "height: 250px; object-fit: scale-down; padding: 10px", alt: booking.duck.title %>
+                <div class="info-content">
+                  <div class="duck-name">
+                    <h2><%= booking.duck.title %></h2>
                   </div>
-
-                  <div class="col destroy text-end px-3">
-                    <%= link_to "Annuler",
-                      booking_path(booking), class: "text-danger",
-                      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-
+                  <p>Dates de location</p>
+                  <div class="date d-flex">
+                    Du : <%= booking.date %><br>
+                    Au : <%= booking.end_date %>
                   </div>
-
-          <div class="col-4">
-            <div class="card m-2 border-0 shadow-sm p-3 mb-5 bg-white rounded">
-              <%= cl_image_tag booking.duck.photo.key, class: "card-img-top padding-0 img-thumbnail", alt: booking.duck.title %>
-              <div class="info-content">
-                <div class="duck-name"><strong><%= booking.duck.title %></strong></div>
-                <div class="date d-flex">
-                  Date de debut : <%= booking.date %><br>
-                  Date de fin : <%= booking.end_date %>
-                 </div>
-                <div class="col destroy text-end">
-                  <%= link_to "Annuler", booking_path(booking), class: "text-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                  <br>
+                  <% if booking.status == "pending" %>
+                        <p class="$yellow">Status: Validation en attente</p>
+                  <% elsif booking.status == "validated" %>
+                        <p>Status: Location validée</p>
+                  <% else %>
+                        <p>Status: Location refusée</p>
+                      <% end %>
+                  <div class="col destroy">
+                    <%= link_to "Annuler la location", booking_path(booking), class: "text-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                  </div>
                 </div>
-                <% if booking.status == "pending" %>
-                      <p>Status: Validation en attente</p>
-                <% elsif booking.status == "validated" %>
-                      <p>Status: Location validée</p>
-                <% else %>
-                      <p>Status: Location refusée</p>
-                    <% end %>
-              </div>
-            </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
-<div class="container mx-auto bg-light-subtle shadow-sm bg-white rounded">
-    <div class="main-title">
-      <h1>Mes canards en location</h1>
-    </div>
-    <div class="add-btn">
-      <%= link_to "Ajouter un nouveau canard", new_duck_path, class: "btn btn-info" %>
-    </div>
-    <div class="cards justify-center">
-      <div class="row">
-        <% @ducks.each do |duck| %>
-          <div class="col-4">
-            <div class="card-img m-3 shadow-sm bg-white ">
-              <% if duck.photo.present? %>
-                <%= cl_image_tag duck.photo.key, class: "card-img-top padding-0", alt: duck.title, style: "height: 200px; object-fit: scale-down;", class:"img-thumbnail" %>
+  </div>
+<%# FIN MES LOCATIONS A VENIR---------------------------------------------- %>
+
+<%# MES CANARDS EN LOCATION----------------------------------- %>
+  <div class="container mx-auto">
+<div class="main-title my-4">
+  <h1 id="mesCanards">Mes canards en location</h1>
+</div>
+
+    <div class="row">
+      <% @ducks.each do |duck| %>
+        <div class="col-lg-4 mb-3">
+          <div class="card-img shadow-sm bg-white h-100">
+            <% if duck.photo.present? %>
+                <%= cl_image_tag duck.photo.key, class: "card-img-top padding-0", alt: duck.title, style: "height: 250px; object-fit: scale-down; padding: 10px" %>
               <% end %>
               <div class="h-100 card-body">
                 <% if duck.title.present? %>
-                  <div class="card-title mb-2"> <strong><%= duck.title %></strong> </div>
+                  <div class="duck-name my-5">
+                    <h2><%= duck.title %></h2>
+                  </div>
                 <% end %>
                 <% if duck.price.present? %>
                   <div class="duck-price"><strong> Prix: <%= duck.price %></strong> €</div>
@@ -94,16 +79,19 @@
                   <% end %>
                 <% end %>
 
-                <div class="card-delete col destroy text-end">
-                  <%= link_to "Supprimer",
+                <div class="card-delete col destroy">
+                <%= link_to "Ne plus louer ce canar",
                     duck_path(duck), class: "text-danger",
                     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
                 </div>
-              </div>
-            </div>
+                </div>
+
+
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
-</div>
+
+
+<%# FIN MES LOCATIONS A VENIR----------------------------------- %>
