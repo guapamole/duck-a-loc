@@ -1,13 +1,10 @@
 <div class="main-title">
   <h1 id="mesCanards">Mes canards en location</h1>
 </div>
-
-
 <div class="container mx-auto bg-light-subtle shadow-sm bg-white rounded">
   <div class="main-title ps-3 pb-3">
     <h1>Mes Locations à venir</h1>
   </div>
-
 <div class="row">
   <% @bookings.each do |booking| %>
     <div class="col-4">
@@ -19,18 +16,13 @@
                   Date de debut : <%= booking.date %><br>
                   Date de fin : <%= booking.end_date %>
                  </div>
-
                 <div class="col destroy text-end">
                   <%= link_to "Annuler", booking_path(booking), class: "text-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-
                 </div>
-
                 <% if booking.status == "pending" %>
                       <p>Status: Validation en attente</p>
-
                 <% elsif booking.status == "validated" %>
                       <p>Status: Location validée</p>
-
                 <% else %>
                       <p>Status: Location refusée</p>
                     <% end %>
@@ -40,21 +32,17 @@
         <% end %>
       </div>
     </div>
-
 <div class="container mx-auto bg-light-subtle shadow-sm bg-white rounded">
     <div class="main-title">
       <h1>Mes canards en location</h1>
     </div>
-
     <div class="add-btn">
       <%= link_to "Ajouter un nouveau canard", new_duck_path, class: "btn btn-info" %>
     </div>
-
     <div class="cards justify-center">
       <div class="row">
         <% @ducks.each do |duck| %>
           <div class="col-4">
-
             <div class="card-img m-3 shadow-sm bg-white ">
               <% if duck.photo.present? %>
                 <%= cl_image_tag duck.photo.key, class: "card-img-top padding-0", alt: duck.title, style: "height: 200px; object-fit: scale-down;", class:"img-thumbnail" %>
@@ -66,7 +54,6 @@
                 <% if duck.price.present? %>
                   <div class="duck-price"><strong> Prix: <%= duck.price %></strong> €</div>
                 <% end %>
-
                 <% if current_user == duck.user %>
                   <% duck.bookings.each do |booking| %>
                     <% if booking.status == "pending" %>
@@ -79,13 +66,11 @@
                       <p>Status: Refuser</p>
                     <% end %>
                   <% end %>
-
                 <% end %>
                 <div class="card-delete col destroy text-end">
                   <%= link_to "Supprimer",
                     duck_path(duck), class: "text-danger",
                     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-
                 </div>
               </div>
             </div>
@@ -93,6 +78,5 @@
         <% end %>
       </div>
     </div>
-
   </div>
 </div>
