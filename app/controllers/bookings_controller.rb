@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
 
   def create
     @duck = Duck.find(params[:duck_id])
-    if current_user == @duck.user # Check if current_user owns the duck
+    if current_user == @duck.user
       @booking = @duck.bookings.build(booking_params)
       @booking.user = current_user
       if @booking.save
@@ -21,7 +21,6 @@ class BookingsController < ApplicationController
         render :new, status: :unprocessable_entity
       end
     else
-      # Unauthorized access - Redirect or show error message
       flash[:alert] = "You are not authorized to perform this action."
       redirect_to dashboard_path
     end
