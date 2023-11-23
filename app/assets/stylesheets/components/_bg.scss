@@ -1,0 +1,45 @@
+body, html, .bubbles {
+  width: 100%; height: 100%;
+  padding: 0; margin: 0;
+}
+.bubbles {
+  background-color: #40C4FF;
+}
+
+.bubbles::after,
+.bubbles::before {
+  content: '';
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  top: 0; left: 0;
+  background-color:red;
+}
+
+
+.bubbles::before,
+.bubbles::after{
+  animation-name: bubbling;
+  animation-timing-function: linear;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+.bubbles::after{
+  box-shadow: 24vw 31vh 0 20px #FFF, 24vw 131vh 0 20px #FFF, 74vw 85vh 0 26px #FFF, 74vw 185vh 0 26px #FFF, 30vw 71vh 0 23px #FFF, 30vw 171vh 0 23px #FFF, 15vw 29vh 0 5px #FFF, 15vw 129vh 0 5px #FFF, 43vw 23vh 0 13px #FFF, 43vw 123vh 0 13px #FFF, 56vw 29vh 0 3px #FFF, 56vw 129vh 0 3px #FFF, 81vw 71vh 0 9px #FFF, 81vw 171vh 0 9px #FFF, 46vw 4vh 0 10px #FFF, 46vw 104vh 0 10px #FFF, 0vw 65vh 0 21px #FFF, 0vw 165vh 0 21px #FFF, 10vw 49vh 0 10px #FFF, 10vw 149vh 0 10px #FFF, 40vw 81vh 0 22px #FFF, 40vw 181vh 0 22px #FFF, 5vw 58vh 0 24px #FFF, 5vw 158vh 0 24px #FFF, 80vw 97vh 0 17px #FFF, 80vw 197vh 0 17px #FFF, 91vw 91vh 0 24px #FFF, 91vw 191vh 0 24px #FFF, 77vw 43vh 0 22px #FFF, 77vw 143vh 0 22px #FFF, 88vw 95vh 0 7px #FFF, 88vw 195vh 0 7px #FFF, 77vw 80vh 0 8px #FFF, 77vw 180vh 0 8px #FFF, 89vw 30vh 0 24px #FFF, 89vw 130vh 0 24px #FFF, 9vw 65vh 0 22px #FFF, 9vw 165vh 0 22px #FFF, 79vw 39vh 0 4px #FFF, 79vw 139vh 0 4px #FFF, ;
+}
+.bubbles::before{
+  box-shadow: 88vw 60vh 0 1px #FFF, 88vw 160vh 0 1px #FFF, 28vw 92vh 0 17px #FFF, 28vw 192vh 0 17px #FFF, 63vw 46vh 0 7px #FFF, 63vw 146vh 0 7px #FFF, 50vw 97vh 0 12px #FFF, 50vw 197vh 0 12px #FFF, 56vw 25vh 0 15px #FFF, 56vw 125vh 0 15px #FFF, 57vw 36vh 0 27px #FFF, 57vw 136vh 0 27px #FFF, 91vw 80vh 0 29px #FFF, 91vw 180vh 0 29px #FFF, 5vw 28vh 0 28px #FFF, 5vw 128vh 0 28px #FFF, 88vw 23vh 0 24px #FFF, 88vw 123vh 0 24px #FFF, 44vw 92vh 0 3px #FFF, 44vw 192vh 0 3px #FFF, 96vw 65vh 0 28px #FFF, 96vw 165vh 0 28px #FFF, 59vw 89vh 0 21px #FFF, 59vw 189vh 0 21px #FFF, 26vw 93vh 0 12px #FFF, 26vw 193vh 0 12px #FFF, 91vw 62vh 0 29px #FFF, 91vw 162vh 0 29px #FFF, 66vw 42vh 0 17px #FFF, 66vw 142vh 0 17px #FFF, 22vw 35vh 0 13px #FFF, 22vw 135vh 0 13px #FFF, 33vw 52vh 0 12px #FFF, 33vw 152vh 0 12px #FFF, 69vw 8vh 0 12px #FFF, 69vw 108vh 0 12px #FFF, 11vw 72vh 0 13px #FFF, 11vw 172vh 0 13px #FFF, 92vw 24vh 0 15px #FFF, 92vw 124vh 0 15px #FFF, ;
+  animation-duration: 15s;
+}
+
+@keyframes bubbling {
+        from {
+            transform: translateY(0)
+        }
+        to {
+            transform: translateY(-100vh)
+        }
+       }

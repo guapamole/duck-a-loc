@@ -1,20 +1,24 @@
+
 <div class="container justify-center">
   <div class="row border border-light-subtle bg-light-subtle m-5 p-5">
-    <div class="col-6">
+    <div class="col">
+      <div class="text-center pb-3">
         <h2>Je souhaite louer le canard <strong><%= @duck.title%></strong>  </h2>
+      </div>
           <div class="d-flex">
               <%= cl_image_tag @duck.photo.key, class: "card-img-top", alt: @duck.title, class:"img-thumbnail" %>
               <div class="formconteiner ms-5">
+              <p class="card-duck-pricing d-flex align-items-center">Prix:<%= @duck.price %>€ / jour</p>
                 <%= simple_form_for [@duck, @booking] do |f| %>
                   <%= f.input :date,
-                            label: 'A partir de',
-                            as: :string,
-                            input_html: { data: { controller: "datepicker" } } %>
+                          label: 'A partir de',
+                          as: :string,
+                          input_html: { data: { controller: "datepicker" } } %>
                   <%= f.input :end_date,
                           label: "Jusqu'au",
                           as: :string,
                           input_html: { data: { controller: "datepicker" } } %>
-                  <%= f.button :submit, class: "btn-rose"%>
+                  <%= f.button :submit, "Louer", class: "btn-rose"%>
                 <% end %>
               </div>
           </div>
