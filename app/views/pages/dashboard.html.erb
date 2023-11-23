@@ -18,17 +18,52 @@
                                 <br>
                                 Date de fin :<%= booking.end_date %>
                               <div class="col destroy text-end">
-                              <%= link_to "Annuler",
-                                booking_path(booking), class: "text-danger",
-                                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+                                <%= link_to "Annuler",
+                                  booking_path(booking), class: "text-danger",
+                                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
                               </div>
                               </div>
                             </div>
                           </div>
-                        </div>
+                      </div>
               <% end %>
           </div>
         </div>
+
+        <div class="main-title">
+                  <h1>Mes canards en location</h1>
+        </div>
+
+        <div>
+          <%= link_to "Ajoute un nouveau canard", new_duck_path, class: "btn btn-primary" %>
+        </div>
+
+        <div class="cards justify-center">
+          <div class="row">
+              <% @ducks.each do |duck| %>
+                <div class="col-4">
+                  <div class="card m-2 border-0 shadow-sm p-3 mb-5 bg-white rounded ">
+                    <% if duck.photo.present? %>
+                      <%= cl_image_tag duck.photo.key, class: "card-img-top padding-0", alt: duck.title, class:"img-thumbnail" %>
+                    <% end %>
+                    <div class="info-content">
+                      <% if duck.title.present? %>
+                        <div class="duck-name"> <strong><%= duck.title %></strong> </div>
+                      <% end %>
+                      <% if duck.price.present? %>
+                        <div class="duck-price"> <strong><%= duck.price %></strong> </div>
+                      <% end %>
+                        <div class="col destroy text-end">
+                            <%= link_to "Supprimer",
+                              duck_path(duck), class: "text-danger",
+                                          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
 
 
     </div>
