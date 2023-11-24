@@ -30,14 +30,14 @@
           <li class="nav-item">
             <%= link_to "Mon profil", "/dashboard", class: "nav-link" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ">
             <%= link_to 'Se deconnecter', destroy_user_session_path, data: {turbo_method: :delete}, class: 'nav-link' %>
           </li>
         <% else %>
           <li class="nav-item">
             <%= link_to "Créer un compte", new_user_registration_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-link-style">
             <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
