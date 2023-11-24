@@ -21,12 +21,12 @@
                     Au : <%= booking.end_date %>
                   </div>
                   <br>
-                  <% if booking.status == "pending" %>
-                        <p class="$yellow">Status: Validation en attente</p>
-                  <% elsif booking.status == "validated" %>
-                        <p>Status: Location validée</p>
+                  <% if booking.status == "en_attente" %>
+                        <p class="$yellow">Validation en attente</p>
+                  <% elsif booking.status == "validé" %>
+                        <p class="text-success">Location validée</p>
                   <% else %>
-                        <p>Status: Location refusée</p>
+                        <p class="text-danger">Location refusée</p>
                       <% end %>
                   <div class="col destroy">
                     <%= link_to "Annuler la location", booking_path(booking), class: "text-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
@@ -63,20 +63,15 @@
                 <% end %>
                 <% if current_user == duck.user %>
                   <% duck.bookings.each do |booking| %>
-                    <% if booking.status == "pending" %>
-                      <p>Status: En cours</p>
-                      <%= link_to "Valider", accept_booking_path(booking), data: { turbo_method: :patch }, class: "btn btn-success" %>
-                      <%= link_to "Refuser", decline_booking_path(booking), data: { turbo_method: :patch }, class: "btn btn-success", style: "display: none;" %>
-                    <% elsif booking.status == "validated" %>
-                      <p>Status: Valider</p>
-                      <%= link_to "Refuser", decline_booking_path(booking), data: { turbo_method: :patch }, class: "btn btn-success" %>
-                      <%= link_to "Valider", accept_booking_path(booking), data: { turbo_method: :patch }, class: "btn btn-success", style: "display: none;" %>
+                    <% if booking.status == "en_attente" %>
+                        <div><%= link_to "Valider", accept_booking_path(booking), class: "text-success" %></div>
+                        <div><%= link_to "Refuser", decline_booking_path(booking), class: "text-danger" %></div>
+
                     <% else %>
-                      <p>Status: Refuser</p>
-                      <%= link_to "Valider", accept_booking_path(booking), data: { turbo_method: :patch }, class: "btn btn-success" %>
-                      <%= link_to "Refuser", decline_booking_path(booking), data: { turbo_method: :patch }, class: "btn btn-success", style: "display: none;" %>
+                      <div><%= booking.status %></div>
                     <% end %>
                   <% end %>
+
                 <% end %>
 
                 <div class="card-delete col destroy">
