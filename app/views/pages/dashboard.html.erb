@@ -1,7 +1,7 @@
 <%# MES LOCATIONS A VENIR--------------------------------------------------- %>
 <div class="container mx-auto">
 <div class="main-title my-4">
-  <h1 id="mesCanards">Mes Locations à venir</h1>
+  <h1 id="mesCanards">Mes Locations à venir : </h1>
 </div>
 
 
@@ -24,7 +24,7 @@
                   <% if booking.status == "en_attente" %>
                         <p class="$yellow">Validation en attente</p>
                   <% elsif booking.status == "validé" %>
-                        <p class="text-success">Location validée</p>
+                        <p class="$green">Location validée</p>
                   <% else %>
                         <p class="text-danger">Location refusée</p>
                       <% end %>
@@ -42,7 +42,7 @@
 <%# MES CANARDS EN LOCATION----------------------------------- %>
   <div class="container mx-auto">
 <div class="main-title my-4">
-  <h1 id="mesCanards">Mes canards en location</h1>
+  <h1 id="mesCanards">Mes canards en location : </h1>
 </div>
 
     <div class="row">
@@ -64,7 +64,7 @@
                 <% if current_user == duck.user %>
                   <% duck.bookings.each do |booking| %>
                     <% if booking.status == "en_attente" %>
-                        <div><%= link_to "Valider", accept_booking_path(booking), class: "text-success" %></div>
+                        <div><%= link_to "Valider", accept_booking_path(booking), class: "$green" %></div>
                         <div><%= link_to "Refuser", decline_booking_path(booking), class: "text-danger" %></div>
 
                     <% else %>
@@ -77,7 +77,7 @@
                 <div class="card-delete col destroy">
                 <%= link_to "Ne plus louer ce canard",
                     duck_path(duck), class: "text-danger",
-                    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+                    data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr?"}%>
                 </div>
                 </div>
 
