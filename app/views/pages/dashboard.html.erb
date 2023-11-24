@@ -52,7 +52,7 @@
             <% if duck.photo.present? %>
                 <%= cl_image_tag duck.photo.key, class: "card-img-top padding-0", alt: duck.title, style: "height: 250px; object-fit: scale-down; padding: 10px" %>
               <% end %>
-              <div class="h-100 card-body">
+              <div class="card-body">
                 <% if duck.title.present? %>
                   <div class="duck-name my-5">
                     <h2><%= duck.title %></h2>
