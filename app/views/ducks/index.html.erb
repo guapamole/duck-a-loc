@@ -11,15 +11,15 @@
       </div>
 </div>
   <%# START SEARCH--------------------- %>
-    <div class="col p-5 align-items-center justify-content-end d-flex">
-    <div class=" ms-5 flex-grow-1">
+    <div class="col p-5 align-items-center justify-content-end d-flex w-100">
+    <div class=" ml-auto flex-grow-1">
       <%= form_with url: ducks_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",
               placeholder: "Chercher un canard..."
           %>
-        <%= image_submit_tag("canard-en-caoutchouc.png", class: "btn-search", alt: "Rechercher") %>
+        <%= image_submit_tag("canard-search.png", class: "btn-search", alt: "Rechercher") %>
       <% end %>
     </div>
   </div>
@@ -38,7 +38,8 @@
               <% end %>
               <div class="card-body text-left">
                 <h2 class="card-title"><%= duck.title %></h2>
-                <p class="card-text">Prix: <%= duck.price %>€</p>
+                <p class="card-text" id= "center-prix">Prix: <%= duck.price %>€</p>
+
               </div>
             </div>
           <% end %>
