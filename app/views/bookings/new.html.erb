@@ -1,7 +1,7 @@
 
 <div class="d-flex justify-content-center">
 
-  <div class="fiche row border border-light-subtle shadow-sm bg-light-subtle m-5 p-5">
+  <div class="fiche row shadow-sm bg-light-subtle m-5 p-5">
         <h2 class="title">Je souhaite louer le canard <strong><%= @duck.title%></strong>  </h2>
     <div class="">
 
@@ -11,7 +11,7 @@
           </div>
           <div class="col">
               <div class="col formconteiner">
-              <p class="card-duck-pricing d-flex align-items-center"><strong class="mb-3">Prix:<%= @duck.price %>€ / jour </strong></p>
+              <p class="card-duck-pricing d-flex align-items-center"><strong class="mb-3">Prix : <%= @duck.price %> € / jour </strong></p>
                 <%= simple_form_for [@duck, @booking] do |f| %>
                   <%= f.input :date,
                           label: 'A partir de',

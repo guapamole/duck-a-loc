@@ -15,11 +15,11 @@
 }
 
 .title h1 {
-    font-size: 36px;
-    font-family: $duck-title;
+    font-size: 60px;
+    font-family: $big-title-font;
     text-align: left;
-    color: #484848;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.82);
     padding-top: 24px;
 }
 
@@ -27,8 +27,8 @@ h2 {
   font-size: 22px;
   font-family: $duck-title;
   text-align: left;
-  color: #484848;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  color: #FFC65B;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.819);
 
 }
 
@@ -39,10 +39,11 @@ h2 {
 }
 
 .card-img {
-justify-content: center;
-display: flex;
-justify-content: center; /* Alignement horizontal au centre */
-align-items: center;
+  justify-content: center;
+  display: flex;
+  justify-content: center; /* Alignement horizontal au centre */
+  align-items: center;
+  border: 10px solid #FFC65B;
 }
 
 h2.card-title {
