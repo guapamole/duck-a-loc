@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   </head>
 
-  <body class="bg-success">
+  <body style="background: url('<%= asset_path "carrelage.jpeg" %>')">
     <% unless current_page?(root_path) %>
       <%= render "devise/shared/navbar" %>
     <% end %>
