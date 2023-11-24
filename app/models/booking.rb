@@ -2,8 +2,8 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :duck
   enum status: {
-    pending: 0,
-    validated: 1,
-    declined: 2
+    en_attente: 0,
+    validé: 1,
+    refusé: 2
   }
 end
