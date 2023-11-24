@@ -44,12 +44,12 @@ class BookingsController < ApplicationController
   end
 
   def accept
-    @booking.validated!
+    @booking.validé!
     redirect_to dashboard_path
   end
 
   def decline
-    @booking.declined!
+    @booking.refusé!
     redirect_to dashboard_path
   end
 
