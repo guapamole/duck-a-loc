@@ -29,7 +29,7 @@
 <%# END SEARCH--------------------- %>
     <div class="row">
       <% @ducks.each do |duck| %>
-        <div class="col-lg-4 mb-3"> <!-- Adjust column size as needed -->
+        <div class="col-lg-4 mb-5"> <!-- Adjust column size as needed -->
           <%#= link_to duck_path(duck) do %>
           <%= link_to new_duck_booking_path(duck) do %>
             <div class="card-img shadow-sm bg-white h-100">
@@ -38,7 +38,7 @@
               <% end %>
               <div class="card-body text-left">
                 <h2 class="card-title"><%= duck.title %></h2>
-                <p class="card-text" id= "center-prix">Prix: <%= duck.price %>€</p>
+                <p class="card-text" id= "center-prix">Prix : <%= duck.price %> € / jour</p>
 
               </div>
             </div>

@@ -8,7 +8,7 @@
 
     <div class="row">
       <% @bookings.each do |booking| %>
-        <div class="col-lg-4 mb-3">
+        <div class="col-lg-4 mb-5">
           <div class="card-img shadow-sm bg-white h-100">
             <%= cl_image_tag booking.duck.photo.key, class: "card-img-top", style: "height: 250px; object-fit: scale-down; padding: 10px", alt: booking.duck.title %>
                 <div class="info-content">
@@ -24,7 +24,7 @@
                   <% if booking.status == "en_attente" %>
                         <p class="$yellow">Validation en attente</p>
                   <% elsif booking.status == "validé" %>
-                        <p class="$green">Location validée</p>
+                        <p class="text-primary">Location validée</p>
                   <% else %>
                         <p class="text-danger">Location refusée</p>
                       <% end %>
@@ -47,7 +47,7 @@
 
     <div class="row">
       <% @ducks.each do |duck| %>
-        <div class="col-lg-4 mb-3">
+        <div class="col-lg-4 mb-5">
           <div class="card-img shadow-sm bg-white h-100">
             <% if duck.photo.present? %>
                 <%= cl_image_tag duck.photo.key, class: "card-img-top padding-0", alt: duck.title, style: "height: 250px; object-fit: scale-down; padding: 10px" %>
@@ -59,12 +59,12 @@
                   </div>
                 <% end %>
                 <% if duck.price.present? %>
-                  <div class="duck-price"><strong> Prix: <%= duck.price %></strong> €</div>
+                  <div class="duck-price"><strong> Prix : <%= duck.price %></strong> € / jour</div>
                 <% end %>
                 <% if current_user == duck.user %>
                   <% duck.bookings.each do |booking| %>
                     <% if booking.status == "en_attente" %>
-                        <div><%= link_to "Valider", accept_booking_path(booking), class: "$green" %></div>
+                        <div><%= link_to "Valider", accept_booking_path(booking), class: "text-primary" %></div>
                         <div><%= link_to "Refuser", decline_booking_path(booking), class: "text-danger" %></div>
 
                     <% else %>
